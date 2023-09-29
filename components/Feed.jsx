@@ -45,7 +45,7 @@ function Feed() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/api/prompt")
+      const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/prompt`)
       const data = await response.json()
   
       setPosts(data)

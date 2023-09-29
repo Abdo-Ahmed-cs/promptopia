@@ -18,7 +18,7 @@ function CreatePrompt() {
         setSubmitting(true)
 
         try {
-            const response = await fetch("/api/prompt/new", 
+            const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/prompt/new`, 
             {
                 method: "post",
                 body: JSON.stringify({

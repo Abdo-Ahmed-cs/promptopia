@@ -8,7 +8,7 @@ function MyProfile({params}) {
     useEffect(() => {
         const fetchPosts = async () => {
           const id = await params.id
-          const response = await fetch(`/api/users/${id}/posts`)
+          const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/users/${id}/posts`)
           const data = await response.json()
           setPosts(data)
         }

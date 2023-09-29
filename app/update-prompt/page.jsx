@@ -15,7 +15,7 @@ function EditPrompt() {
 
     useEffect(() => {
         const getPromptDetails = async () => {
-            const response = await fetch(`/api/prompt/${promptId}`)
+            const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/prompt/${promptId}`)
             const data = await response.json()
 
             setPost({
@@ -32,7 +32,7 @@ function EditPrompt() {
         setSubmitting(true)
 
         try {
-            const response = await fetch(`/api/prompt/${promptId}`, 
+            const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/prompt/${promptId}`, 
             {
                 method: "PATCH",
                 body: JSON.stringify({

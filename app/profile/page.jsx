@@ -11,7 +11,7 @@ function MyProfile() {
     const router = useRouter()
 
     const handleEdit = async (post) => {
-        router.push(`/update-prompt?id=${post._id}`)
+        router.push(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/update-prompt?id=${post._id}`)
     }
 
     const handleDelete = async (post) => {
@@ -19,7 +19,7 @@ function MyProfile() {
 
       if (hasConfirmed) {
         try {
-          await fetch(`/api/prompt/${post._id.toString()}`, {
+          await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/prompt/${post._id.toString()}`, {
             method: "DELETE",
 
           })
@@ -34,7 +34,7 @@ function MyProfile() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-          const response = await fetch(`/api/users/${session?.user.id}/posts`)
+          const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/users/${session?.user.id}/posts`)
           const data = await response.json()
     
           setPosts(data)
